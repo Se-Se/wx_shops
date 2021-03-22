@@ -1,0 +1,117 @@
+<!-- pages/order/order.wxml -->
+<scroll-view enable-flex="true" scroll-y="{{true}}" class="order-container">
+    <view class="order-container-sec_1">
+        <iconfont class="order-home-icon" name="shop"></iconfont>
+        <view class="info">
+            <view class="up">
+                <span class="tag">自提</span>
+                硅谷店 （七贤岭地铁旁）
+            </view>
+            <view class="down">
+                <view>距离您658米</view>
+                <view>约5分钟后取餐</view>
+            </view>
+        </view>
+    </view>
+    <view class="order-container-sec_2">
+        <view class="up inner">
+            <view class="l">就餐方式</view>
+            <view class="r">
+                打包带走
+                <iconfont size="14" class="sec_2-icon r" name="arrow-right"></iconfont>
+            </view>
+        </view>
+        <view class="down inner">
+            <view class="l ">联系电话</view>
+            <view class="r">
+                17824801187
+                <iconfont size="14" class="sec_2-icon-icon r" name="edit"></iconfont>
+            </view>
+        </view>
+    </view>
+    <view class="order-container-sec_3">
+        <view class="detail">
+            <view class="title">餐品详情</view>
+            <view class="detail-inner">
+                <view class="inner-item">
+                    <view class="left">
+                        超值全家桶
+                        <a>详情</a>
+                    </view>
+                    <view class="right">
+                        <view class="num">X1</view>
+                        <view class="price">￥92.9</view>
+                    </view>
+                </view>
+                <view class="inner-item">
+                    <view class="left">
+                        超值全家桶
+                        <a>详情</a>
+                    </view>
+                    <view class="right">
+                        <view class="num">X1</view>
+                        <view class="price">￥92.9</view>
+                    </view>
+                </view>
+            </view>
+            <view class="total ">
+                <span class="left">小计</span>
+                <span class="t-price">￥32</span>
+            </view>
+        </view>
+        <view class="recommend">
+            <view class="title">
+                订单已满
+                <span class="price">81.1</span>
+                元，为您推荐搭配
+            </view>
+            <view class="recommend-inner">
+                <view class="inner-item" wx:if="{{rIndex < maxIndex_r}}" wx:for="{{recommondLsit}}" wx:for-index="rIndex" wx:for-item="rItem" wx:key="id">
+                    <view class="left">
+                        <view class="pic">
+                            <image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/food1.jpg?sign=8949fd99b2185daa082f3498dc13a39b&t=1615951070" ault="" />
+                        </view>
+                        <view class="name">{{rItem.name}}</view>
+                    </view>
+                    <view class="right">
+                        <view class="price">
+                            <span>￥{{rItem.pre_price}}</span>
+                            <span>￥{{rItem.price}}</span>
+                        </view>
+                        <view class="chose" data-id="{{rItem.id}}" data-price="{{rItem.price}}" bindtap="handleRecommend">
+                            <radio color="#a30a0a" value="{{rItem.id}}" checked="{{rItem.chose}}" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="r-footer">
+                <view class="show-more" bindtap="handleRecommendShowAll">
+                    {{show_r_all?'收起优惠':'展开全部优惠'}}
+                    <iconfont size="14" class="{{show_r_all?'sec_3_icon up_arrow':'sec_3_icon '}}" name="arrow-down-line"></iconfont>
+                </view>
+                <view class="total" wx:if="{{show_r_Price}}">
+                    <span class="count">小计</span>
+                    <span class="t-price">￥{{recommond_t_price}}</span>
+                </view>
+            </view>
+        </view>
+        <view class="advert">
+            <view class="left">
+                <view class="name">午餐卡</view>
+                <view class="dec">指定四件组合24元起</view>
+            </view>
+            <view class="right">
+                <view class="price">
+                    <span>￥18.0</span>
+                    /
+                    <span>30</span>
+                </view>
+                <view class="buy_notice">购买须知</view>
+                <view class="chose">
+                    <radio color="#a30a0a" checked="true" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="order-container-sec_4"></view>
+</scroll-view>

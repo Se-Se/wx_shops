@@ -1,0 +1,27 @@
+$orderPrefix:".order-container";
+page{
+    width: 100%;
+    height: 100%;
+    #{$orderPrefix}{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        &-sec_1{
+            height: 120rpx;
+            width: 100%;
+            box-shadow: 0rpx 0rpx 10rpx 10rpx rgb(223, 220, 220);
+            border-radius: 0 0 30rpx 30rpx;
+            position: relative;
+            .order-home-icon{
+                width: 10%;
+                margin-left: 20rpx;
+                display: inline-block;
+               top:50%;
+               left: 17rpx;
+               position: absolute;
+               transform: translate(0,-50%);
+            }
+        }
+    }
+}
+

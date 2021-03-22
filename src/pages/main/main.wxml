@@ -1,0 +1,30 @@
+<!--pages/main/main.wxml-->
+<view class="container">
+<view class="header">商店主页</view>
+<view class="content">
+<view class="goods-content">
+<view class="good">
+<image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057" alt="" />
+<view class="good-dec">
+<view class="name">商品名</view>
+<view class="discript">商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</view>
+</view>
+</view>
+<view class="good">
+<image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057" alt="" />
+<view class="good-dec">
+<view class="name">商品名</view>
+<view class="discript">商品描述商</view>
+</view>
+</view>
+<view class="good">
+<image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057" alt="" />
+<view class="good-dec">
+<view class="name">商品名</view>
+<view class="discript">商品描述商品描述商品描述商品描</view>
+</view>
+</view>
+
+</view>
+</view>
+</view>

@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "src/pages/goods/good",
+    "src/pages/main/main",
+    "src/pages/index/index",
+    "src/pages/logs/logs",
+    "src/pages/order/order"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "entryPagePath":"src/pages/order/order",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "iconfont": "/iconfont/iconfont"
+  }
+}

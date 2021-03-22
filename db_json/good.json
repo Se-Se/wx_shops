@@ -1,0 +1,25 @@
+{
+    "name": "shop4",
+    "tags": [
+        "tag-1",
+        "tag-2"
+    ],
+    "id": "id_4",
+    "goods": [
+        {
+            "img": "https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057",
+            "name": "商品名",
+            "price": "￥39.0"
+        },
+        {
+            "img": "https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057",
+            "name": "商品名",
+            "price": "￥39.0"
+        },
+        {
+            "img": "https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057",
+            "name": "商品名",
+            "price": "￥39.0"
+        }
+    ]
+}

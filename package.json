@@ -1,0 +1,21 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-watch": "node watcher.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.weixin.qq.com/wx_wx99f80ac552ac95fc/Shops.git"
+  },
+  "author": "ablert",
+  "license": "ISC",
+  "devDependencies": {
+    "chokidar": "^3.5.1",
+    "mini-program-iconfont-cli": "^0.6.0",
+    "node-sass": "^5.0.0"
+  }
+}

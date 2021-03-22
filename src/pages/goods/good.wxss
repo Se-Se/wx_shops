@@ -1,0 +1,338 @@
+/* pages/goods/good.wxss */
+
+/* pages/main/main.wxss */
+
+page {
+    height: 100%;
+    overflow: hidden;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: white;
+}
+
+/* ---------------------------------------------------order-------------------------------------------------- */
+
+.container .order-sec {
+    background-color: rgb(255, 255, 255);
+    height: 100rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.container .order-sec .order-left {
+    width: 30%;
+    margin-left: 10rpx;
+}
+
+.container .order-sec .order-left .food-icon {
+    display: inline-block;
+    position: absolute;
+    top: 10rpx;
+}
+.container .order-sec .order-left .price .order-num{
+    left: -20rpx;
+    top: 9rpx;
+    width: 24rpx;
+    height: 24rpx;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(226, 91, 29);
+    font-size: 16rpx;
+    text-align: center;
+    line-height: 24rpx;
+    color: rgb(223, 220, 220);
+}
+
+.container .order-sec .order-left .price {
+    display: inline-block;
+    height: 100rpx;
+    line-height: 100rpx;
+    position: absolute;
+    left: 108rpx;
+    color: rgb(134, 19, 19);
+}
+
+.container .order-sec .buy {
+    position: absolute;
+    right: 18rpx;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: 80%;
+    width: 30%;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    padding: 0;
+    padding-top: 5rpx;
+    background-color: rgb(228, 26, 26);
+    text-align: center;
+    border-radius: 40rpx;
+}
+
+
+.container .order-sec .buy  view{
+    height: 50%;   
+}
+.container .order-sec .buy  view:nth-child(2){
+    font-size: 20rpx;
+}
+/* ---------------------------------------------------swiper-------------------------------------------------- */
+
+.container .swiper-sec {
+    width: 100%;
+    height: 400rpx;
+}
+
+.container .swiper-sec .swiper-item {
+    width: 100%;
+    height: 100%;
+}
+
+.container .swiper-sec image {
+    width: 100%;
+    /* height: 100%; */
+    object-fit: contain;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 100rpx;
+    /* overflow: scroll; */
+}
+
+/* ---------------------------------------------------groups-------------------------------------------------- */
+
+.content .groups {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    background-color: rgb(235, 235, 235);
+    font-size: 24rpx;
+}
+
+.content .groups .on {
+    background-color: white;
+}
+
+.content .groups .name {
+    margin-top: 10rpx;
+    height: 90rpx;
+    line-height: 150rpx;
+    position: relative;
+    color: red;
+    font-size: 16rpx;
+}
+
+.content .groups .groups-icon {
+    position: absolute;
+    left: 50%;
+    top: 12rpx;
+    transform: translate(-50%, 0);
+}
+
+/* ---------------------------------------------------goods-content-------------------------------------------------- */
+
+.goods-content {
+    width: 80%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 20rpx;
+    box-sizing: border-box;
+    margin-left: 20%;
+    /* margin-top: 90rpx; */
+}
+
+/* ---------------------------------------------------content-top-------------------------------------------------- */
+
+.content .content-top {
+    position: fixed;
+    width: 80%;
+    z-index: 10;
+    background-color: white;
+    text-align: center;
+    height: 90rpx;
+    left: 20%;
+    padding-bottom: 10rpx;
+    box-sizing: border-box;
+}
+
+.content .content-top .group-name {
+    color: red;
+    height: 40rpx;
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+
+.content .content-top .tags {
+    display: flex;
+    justify-content: start;
+}
+
+.content .content-top .tags .tag {
+    /* width: 100rpx; */
+    height: 36rpx;
+    line-height: 32rpx;
+    font-size: 30rpx;
+    margin: 0rpx 20rpx 10rpx 20rpx;
+    border-radius: 25rpx 25rpx;
+    /* box-shadow:0px 0px 10rpx rgb(223, 220, 220) ; */
+    border: 1rpx solid rgb(223, 220, 220);
+    /* box-sizing: border-box; */
+    padding: 4rpx 14rpx;
+}
+
+/* ---------------------------------------------------group-good-------------------------------------------------- */
+
+.goods-content .group-good {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 30rpx;
+}
+
+.goods-content .group-good .good {
+    width: 100%;
+    height: 260rpx;
+    position: relative;
+    overflow: hidden;
+    padding: 10rpx;
+    box-sizing: border-box;
+    /* border: 1px solid #CCCCCC; */
+    box-shadow: 0px 0px 10rpx rgb(223, 220, 220);
+    margin-top: 20rpx;
+}
+
+.goods-content .group-good .good:first-child {
+    margin-top: 100rpx;
+}
+
+.goods-content .good .good-dec {
+    position: relative;
+    transform: translate(0, -100%);
+    top: 0;
+    left: 50%;
+    text-align: center;
+    height: 100%;
+    padding: 20rpx;
+    box-sizing: border-box;
+    font-size: 22rpx;
+    font-weight: bold;
+    letter-spacing: 1rpx;
+    width: 50%;
+}
+
+.goods-content .good .good-dec .discript {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    margin-top: 10rpx;
+}
+
+.goods-content .good .good-dec .name {}
+
+.goods-content .good .good-dec .price {
+    text-align: end;
+    color: rgb(243, 26, 26);
+    font-size: 24rpx;
+    font-weight: normal;
+    margin-top: 5rpx;
+}
+
+.goods-content .good .good-dec .price span {
+    font-size: 12rpx;
+    margin-left: -7rpx;
+}
+
+.goods-content .good .good-dec .add-cart{
+    width: 66%;
+    height: 20%;
+    position: relative;
+    left: 46%;
+    top: 60%;
+}
+.goods-content .good .good-dec .add {
+    text-align: end;
+    position: absolute;
+    /* top: 100rpx; */
+    bottom: 60rpx;
+    right: 10rpx;
+}
+
+.goods-content .good .good-dec .add::before {
+    content: '+';
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    background-color: rgb(209, 34, 34);
+    /* display: block; */
+    right: 0;
+    text-align: center;
+    line-height: 26rpx;
+    font-weight: bold;
+    color: rgba(253, 253, 249, 0.897);
+    margin-top: 20rpx;
+    font-size: 30rpx;
+}
+.goods-content .good .good-dec .minus {
+    text-align: end;
+    position: absolute;
+    /* top: 100rpx; */
+    bottom: 60rpx;
+    right: 10rpx;
+}
+
+.goods-content .good .good-dec .minus::before {
+    content: '-';
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    background-color: rgb(209, 34, 34);
+    /* display: block; */
+    right: 100rpx;
+    text-align: center;
+    line-height: 26rpx;
+    font-weight: bold;
+    color: rgba(253, 253, 249, 0.897);
+    margin-top: 20rpx;
+    font-size: 30rpx;
+}
+
+.good .img-content {
+    width: 50%;
+    height: 100%;
+}
+
+.good image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0,-50%); */
+}

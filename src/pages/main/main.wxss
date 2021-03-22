@@ -1,0 +1,58 @@
+/* pages/main/main.wxss */
+.container{
+    width: 100%;
+    height: 100%;
+    padding:10rpx;
+}
+.content{
+    width: 100%;
+}
+.goods-content{
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+.good{
+    width: 100%;
+    height: 300rpx;
+    position: relative;
+    margin-top:100rpx;
+    overflow: hidden;
+}
+.goods-content .good:first-child{
+
+}
+.goods-content .good .good-dec{
+   position: absolute;
+   top: 0;
+   left: 50%;
+}
+.goods-content .good .good-dec .discript{
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    font-size: 26rpx;
+    margin-top: 10rpx;
+
+}
+.goods-content .good .good-dec .name{
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.good image{
+    width: 18vw;
+    height: 18vw;
+    /* position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0,-50%); */
+    
+}

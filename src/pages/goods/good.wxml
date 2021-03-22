@@ -1,0 +1,60 @@
+<!-- pages/goods/good.wxml -->
+<view class="container">
+    <view class="swiper-sec">
+        <view class="page-section page-section-spacing swiper">
+            <swiper indicator-dots="{{swiperInfo.indicatorDots}}" autoplay="{{swiperInfo.autoplay}}" interval="{{swiperInfo.interval}}" circular="{{swiperInfo.circular}}" duration="{{swiperInfo.duration}}">
+                <block wx:for="{{swiperArr}}" wx:key="img">
+                    <swiper-item>
+                        <view class="swiper-item "> <image src="{{item.img}}" alt="" /></view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+    </view>
+    <view class="content">
+        <scroll-view scroll-y="true" class="groups">
+            <view class="{{currentGroup===nIndex?'on name':'name'}}" wx:key="name" wx:for-index="nIndex" wx:for="{{groups}}" data-index="{{nIndex}}" data-id="{{item.id}}" bindtap="tapGroups">
+                <iconfont class="groups-icon" name="{{item.icon}}"></iconfont>
+                <text>{{item.name}}</text>
+            </view>
+        </scroll-view>
+        <view class="content-top">
+            <view class="group-name">```{{currentTags.name}}```</view>
+            <view class="tags">
+                <view class="tag" wx:key="scrolltop"  wx:for="{{currentTags.tags}}" wx:for-item="tag" wx:for-index="tIndex">
+                    {{tag}}
+                </view>
+            </view>
+        </view>
+        <scroll-view scroll-y="true" enable-flex="true" scroll-with-animation="true" bindscroll="handleScroll" scroll-top="{{scrollTop}}" enhanced="true" class="goods-content">
+            <view class="group-good" id="{{item.id}}" wx:key="id" wx:for-index="index" wx:for="{{goods}}" wx:for-item="item">
+                <view class="good" wx:key="good" wx:for-index="gIndex" wx:for="{{item.goods}}" wx:for-item="good">
+                    <view class="img-content">
+                        <image src="{{good.img}}" alt="" />
+                    </view>
+                    <view class="good-dec">
+                        <view class="name">{{good.name}}</view>
+                        <!-- <view class="discript">商品描述商品描述商品描述商品</view> -->
+                        <view class="price">
+                            ￥{{good.price}}
+                            <span>起</span>
+                        </view>
+                        <view class="add-cart">
+                             <view class="minus" wx:if="{{good.num > 0}}" data-type="minus" data-group="{{item.name}}" data-target="{{good}}" bindtap="addToCar" ></view>
+                             <view class="num" wx:if="{{good.num > 0}}">{{good.num}}</view>
+                            <view class="add" data-group="{{item.name}}" data-type="add" data-target="{{good}}" bindtap="addToCar" ></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="order-sec" wx:if="{{showOrder}}">
+        <view class="order-left">
+            <iconfont size="40" class="food-icon"  name="shiwuqimin4"></iconfont>
+            <view class="price" ><view class="order-num">{{orderNum}}</view><span class="unit">￥</span>{{order.price}}</view>
+        </view>
+        
+        <view class="buy" bindtap="buy"><view>选好了</view><view>order</view></view>
+    </view>
+</view>
