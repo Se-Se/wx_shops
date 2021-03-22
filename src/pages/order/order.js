@@ -8,6 +8,7 @@ Page({
    */
   onLoad: function (options) {
     this.init();
+
   },
 
   /**
@@ -63,33 +64,140 @@ Page({
  */
   data: {
     orderList: [],
+    orderPrice: 0,
+    totalPrice:0,
     recommondLsit: [],
     maxIndex_r: 3,
     show_r_all: false,
-    recommond_t_price:0,
-    show_r_Price:false
+    recommond_t_price: 0,
+    show_r_Price: false,
+    advert: {
+      chose: false
+    },
+    vTick: {
+      check: false
+    },
+    surplusPay: {
+      check: false
+    },
+    showNoticeSec: false,
+    maxLen: 18,
+    oldTags: [],
+    tagVal: '',
+    fastTags: ['不要辣', '不加葱'],
+    PhoneNum: 12345678
   },
   init() {
-    this.setData({
-      recommondLsit: test_recommondLsit
-    });
-    if(test_recommondLsit.length){
-      let num = 0;
-      test_recommondLsit.map((item)=>{
-        if(item.chose){
-         num+=Number(item.price);
-        }
+    console.log(333);
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('acceptDataFromOpenerPage', (data) => {
+      console.log('data', data);
+      this.setData({
+        orderList: [...data.data]
       });
       this.setData({
-        recommond_t_price:(Number(this.data.recommond_t_price) + Number(num)).toFixed(1)
-      },()=>{
-        this.showRPrice();
-      })
-    }
+        orderPrice: data.totalPrice
+      });
+
+      // 
+      this.setData({
+        recommondLsit: test_recommondLsit
+      });
+      if (test_recommondLsit.length) {
+        let num = 0;
+        test_recommondLsit.map((item) => {
+          if (item.chose) {
+            num += Number(item.price);
+          }
+        });
+        this.setData({
+          recommond_t_price: (Number(this.data.recommond_t_price) + Number(num)).toFixed(1),
+        }, () => {
+          this.handleTotalPrice(data.totalPrice,num)
+          this.showRPrice();
+        })
+      }
+
+    });
   },
-  showRPrice(){
+  handleTotalPrice(data,num){
     this.setData({
-      show_r_Price:Number(this.data.recommond_t_price)>0
+      totalPrice:(Number(data) + Number(num)).toFixed(1)
+    })
+  },
+  editPhoneNum() {
+    this.setData({
+      ablePhone: !this.data.ablePhone
+    })
+  },
+  handleTapFastTag(ev) {
+    this.setData({
+      tagVal: (this.data.tagVal + ev.currentTarget.dataset.item).substring(0, 18)
+    })
+  },
+  handleTapOldTag(ev) {
+    console.log(ev);
+    this.setData({
+      tagVal: (this.data.tagVal + ev.currentTarget.dataset.item).substring(0, 18)
+    })
+  },
+  saveTag() {
+    if (this.data.tagVal.trim() !== '') {
+      this.setData({
+        oldTags: [...this.data.oldTags, this.data.tagVal]
+      });
+    } else {
+      this.setData({
+        tagVal: this.data.tagVal.trim()
+      });
+    };
+    this.setData({
+      showNoticeSec: false
+    })
+  },
+
+  handleNticeInput(ev) {
+    console.log('input', ev);
+    this.setData({
+      tagVal: ev.detail.value
+
+    })
+  },
+  editNotice() {
+    this.setData({
+      showNoticeSec: true
+    })
+  },
+  closeNoticeSec() {
+    this.setData({
+      showNoticeSec: false
+    })
+  },
+
+  switchSurplusChange() {
+    this.setData({
+      surplusPay: {
+        check: !this.data.surplusPay.check
+      }
+    })
+  },
+  switchVtickChange() {
+    this.setData({
+      vTick: {
+        check: !this.data.vTick.check
+      }
+    })
+  },
+  handleAdvertChose() {
+    this.setData({
+      advert: {
+        chose: !this.data.advert.chose
+      }
+    })
+  },
+  showRPrice() {
+    this.setData({
+      show_r_Price: Number(this.data.recommond_t_price) > 0
     })
   },
   handleRecommendShowAll() {
@@ -109,8 +217,9 @@ Page({
       if (item.id === id) {
         item.chose = !item.chose;
         this.setData({
-          recommond_t_price:item.chose?(Number(this.data.recommond_t_price) + Number(item.price)).toFixed(1) :(Number(this.data.recommond_t_price) - Number(item.price)).toFixed(1)
-        },()=>{
+          recommond_t_price: item.chose ? (Number(this.data.recommond_t_price) + Number(item.price)).toFixed(1) : (Number(this.data.recommond_t_price) - Number(item.price)).toFixed(1)
+        }, () => {
+          this.handleTotalPrice(this.data.orderPrice,this.data.recommond_t_price)
           this.showRPrice();
         })
       }

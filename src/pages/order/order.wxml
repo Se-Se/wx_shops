@@ -24,8 +24,8 @@
         <view class="down inner">
             <view class="l ">联系电话</view>
             <view class="r">
-                17824801187
-                <iconfont size="14" class="sec_2-icon-icon r" name="edit"></iconfont>
+                <input  class="phone-input" type="number" value="{{PhoneNum}}" />
+                <iconfont size="14" class="sec_2-icon-icon r" name="edit" bindtap="editPhoneNum"></iconfont>
             </view>
         </view>
     </view>
@@ -33,36 +33,26 @@
         <view class="detail">
             <view class="title">餐品详情</view>
             <view class="detail-inner">
-                <view class="inner-item">
+                <view class="inner-item" wx:for="{{orderList}}" wx:key="id" wx:for-item="oItem">
                     <view class="left">
-                        超值全家桶
+                        {{oItem.name}}
                         <a>详情</a>
                     </view>
                     <view class="right">
-                        <view class="num">X1</view>
-                        <view class="price">￥92.9</view>
-                    </view>
-                </view>
-                <view class="inner-item">
-                    <view class="left">
-                        超值全家桶
-                        <a>详情</a>
-                    </view>
-                    <view class="right">
-                        <view class="num">X1</view>
-                        <view class="price">￥92.9</view>
+                        <view class="num">X{{oItem.num}}</view>
+                        <view class="price">￥{{oItem.price}}</view>
                     </view>
                 </view>
             </view>
             <view class="total ">
                 <span class="left">小计</span>
-                <span class="t-price">￥32</span>
+                <span class="t-price">￥{{orderPrice}}</span>
             </view>
         </view>
         <view class="recommend">
             <view class="title">
                 订单已满
-                <span class="price">81.1</span>
+                <span class="price">{{orderPrice}}</span>
                 元，为您推荐搭配
             </view>
             <view class="recommend-inner">
@@ -101,17 +91,93 @@
                 <view class="dec">指定四件组合24元起</view>
             </view>
             <view class="right">
-                <view class="price">
-                    <span>￥18.0</span>
-                    /
-                    <span>30</span>
+                <view class="chose" bindtap="handleAdvertChose">
+                    <radio color="rgba(255, 239, 204,0)" checked="{{advert.chose}}" />
                 </view>
-                <view class="buy_notice">购买须知</view>
-                <view class="chose">
-                    <radio color="#a30a0a" checked="true" />
+                <view class="text">
+                    <view class="price">
+                        <span>￥18.0</span>
+                        /
+                        <span>30</span>
+                    </view>
+                    <view class="buy_notice">购买须知</view>
                 </view>
             </view>
         </view>
+        <view class="v-tick">
+            <view class="left ">
+                <view class="up-tag">周二会员日·V金当钱花</view>
+                <view class="desc">不可用原因：共27400，限周二满足活动条件时使用</view>
+            </view>
+            <view class="right">
+                <switch checked="{{vTick.check}}" bindchange="switchVtickChange" />
+            </view>
+        </view>
     </view>
-    <view class="order-container-sec_4"></view>
+    <view class="order-container-sec_4">
+        <view class="title">支付</view>
+        <view class="surplus item">
+            <view class="text left">余额支付(￥0.0)</view>
+            <view class="right">
+                <switch checked="{{surplusPay.check}}" bindchange="switchSurplusChange" />
+            </view>
+        </view>
+        <view class="more-type item">
+            <view class="text left">更多支付方式  还需￥40.5</view>
+            <view class="right">
+                <iconfont size="12" class="sec_4-icon-wx l" name="weixinzhifu"></iconfont>
+                微信支付
+            </view>
+        </view>
+        <view class="tick-type item">
+            <view class="text left  bold">开票方式</view>
+            <view class="right light">请在订单详情的发票入口自助开票</view>
+        </view>
+        <view class="notice item ">
+            <view class="text left bold">备注</view>
+            <view class="right light" bindtap="editNotice">
+                {{tagVal||'口味、 偏好等要求'}}
+                <iconfont color="rgb(177, 174, 174)" size="12" class="sec_4-icon-notice r" name="arrow-right"></iconfont>
+            </view>
+        </view>
+    </view>
+    <view class="order-pay">
+        <view class="price l">￥{{totalPrice}}</view>
+        <view class="right r">
+            <view class="up">立即支付</view>
+            <view class="down">checkout</view>
+        </view>
+    </view>
+    <view class="mark" wx:if="{{showNoticeSec}}"></view>
+    <view class="notice-sec" wx:if="{{showNoticeSec}}">
+        <view class="title">
+            <view class="text">备注</view>
+            <view class="close" bindtap="closeNoticeSec">
+                <iconfont size="24" class="icon-close" name="cross"></iconfont>
+            </view>
+        </view>
+        <view class="text-content">
+            <textarea value="{{tagVal}}" maxlength="{{maxLen}}" bindinput="handleNticeInput" placeholder-style="font-size:24rpx;color:#615a61" show-confirm-bar="true" placeholder="请输入口味、 偏好等要求" />
+            <view class="num">
+                <span class="left">{{tagVal.length}}</span>
+                /
+                <span class="total">{{maxLen}}</span>
+            </view>
+        </view>
+        <scroll-view class="tag-sec"  enable-flex="true" scroll-y="{{true}}">
+            <view class="old-tags-content item" wx:if="{{oldTags.length>0}}">
+                <view class="old-title">历史标签</view>
+                <view class="old-tags-inner">
+                    <view class="tag" wx:key="index" wx:for="{{oldTags}}" data-item="{{item}}" bindtap="handleTapOldTag">{{item}}</view>
+                </view>
+            </view>
+            <view class="tags-content item">
+                <view class="title">快捷标签</view>
+                <view class="tags-inner">
+                    <view class="tag" wx:for="{{fastTags}}" wx:key="fItem" data-item="{{fItem}}" wx:for-item="fItem" bindtap="handleTapFastTag">{{fItem}}</view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="save" bindtap="saveTag">确定</view>
+    </view>
 </scroll-view>

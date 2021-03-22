@@ -127,6 +127,14 @@ Page({
     console.log(arr);
 
     // 跳到支付页面
+    wx.navigateTo({
+      url: '../order/order',
+      success: (res)=> {
+        // 通过eventChannel向被打开页面传送数据
+        console.log(1111111)
+        res.eventChannel.emit('acceptDataFromOpenerPage', { data: arr,totalPrice:this.data.order.price })
+      }
+    })
   },
   // 添加到购物车
   addToCar(ev) {
