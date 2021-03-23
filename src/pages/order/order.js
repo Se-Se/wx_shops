@@ -65,7 +65,7 @@ Page({
   data: {
     orderList: [],
     orderPrice: 0,
-    totalPrice:0,
+    totalPrice: 0,
     recommondLsit: [],
     maxIndex_r: 3,
     show_r_all: false,
@@ -85,10 +85,18 @@ Page({
     oldTags: [],
     tagVal: '',
     fastTags: ['不要辣', '不加葱'],
-    PhoneNum: 12345678
+    PhoneNum: 12345678,
+    packageTags: ['店内就餐', '打包带走'],
+    showPackageSec: false,
+    packageIndex: 0,
+    pre_packageIndex: 0,
+    thePackageType: ''
   },
   init() {
     console.log(333);
+    this.setData({
+      thePackageType: this.data.packageTags[this.data.packageIndex]
+    })
     const eventChannel = this.getOpenerEventChannel()
     eventChannel.on('acceptDataFromOpenerPage', (data) => {
       console.log('data', data);
@@ -113,16 +121,44 @@ Page({
         this.setData({
           recommond_t_price: (Number(this.data.recommond_t_price) + Number(num)).toFixed(1),
         }, () => {
-          this.handleTotalPrice(data.totalPrice,num)
+          this.handleTotalPrice(data.totalPrice, num)
           this.showRPrice();
         })
       }
 
     });
   },
-  handleTotalPrice(data,num){
+  savePackageType() {
     this.setData({
-      totalPrice:(Number(data) + Number(num)).toFixed(1)
+      showPackageSec: false
+    });
+    this.setData({
+      pre_packageIndex: this.data.packageIndex
+    }, () => {
+      this.setData({
+        thePackageType: this.data.packageTags[this.data.pre_packageIndex]
+      })
+    })
+  },
+  tapPackageTag(ev) {
+    this.setData({
+      packageIndex: ev.currentTarget.dataset.index
+    })
+  },
+  handleShowPackage() {
+    this.setData({
+      showPackageSec: true
+    })
+  },
+  closePackageSec() {
+    this.setData({
+      showPackageSec: false,
+      packageIndex: this.data.pre_packageIndex
+    })
+  },
+  handleTotalPrice(data, num) {
+    this.setData({
+      totalPrice: (Number(data) + Number(num)).toFixed(1)
     })
   },
   editPhoneNum() {
@@ -219,7 +255,7 @@ Page({
         this.setData({
           recommond_t_price: item.chose ? (Number(this.data.recommond_t_price) + Number(item.price)).toFixed(1) : (Number(this.data.recommond_t_price) - Number(item.price)).toFixed(1)
         }, () => {
-          this.handleTotalPrice(this.data.orderPrice,this.data.recommond_t_price)
+          this.handleTotalPrice(this.data.orderPrice, this.data.recommond_t_price)
           this.showRPrice();
         })
       }

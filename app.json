@@ -12,7 +12,7 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-  "entryPagePath":"src/pages/goods/good",
+  "entryPagePath":"src/pages/main/main",
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {

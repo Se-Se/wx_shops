@@ -1,30 +1,67 @@
-<!--pages/main/main.wxml-->
+<!-- pages/main/main.wxml -->
 <view class="container">
-<view class="header">商店主页</view>
-<view class="content">
-<view class="goods-content">
-<view class="good">
-<image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057" alt="" />
-<view class="good-dec">
-<view class="name">商品名</view>
-<view class="discript">商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</view>
-</view>
-</view>
-<view class="good">
-<image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057" alt="" />
-<view class="good-dec">
-<view class="name">商品名</view>
-<view class="discript">商品描述商</view>
-</view>
-</view>
-<view class="good">
-<image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/c_img1.png?sign=57853e46647a71f693760f4ae192d525&t=1615769057" alt="" />
-<view class="good-dec">
-<view class="name">商品名</view>
-<view class="discript">商品描述商品描述商品描述商品描</view>
-</view>
-</view>
-
-</view>
-</view>
+    <view class="content">
+        <view class="header">
+            <view class="help r">？</view>
+            <view class="out r">退出</view>
+            <view class="name r">
+                欢迎您
+                <open-data type="userNickName"></open-data>
+            </view>
+        </view>
+        <view class="banner">
+            <view class="page-section page-section-spacing swiper">
+                <swiper indicator-dots="{{swiperInfo.indicatorDots}}" autoplay="{{swiperInfo.autoplay}}" interval="{{swiperInfo.interval}}" circular="{{swiperInfo.circular}}" duration="{{swiperInfo.duration}}">
+                    <block wx:for="{{swiperArr}}" wx:key="img">
+                        <swiper-item>
+                            <view class="swiper-item ">
+                                <image src="{{item.img}}" alt="" />
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+        </view>
+        <view class="sec-1">
+            下午好，
+            <open-data type="userNickName"></open-data>
+        </view>
+        <view class="sec-2">
+            <view class="order-btn">
+                <view class="inner">
+                    <view class="icon">
+                        <iconfont size="24" color="white" class="spon-icon" name="shaoziyuchazi"></iconfont>
+                    </view>
+                    <view class="text">
+                        <view class="up">开始点餐</view>
+                        <view class="down">oreder Now</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="sec-3">
+            <view class="box-item" wx:for="{{sec_2_groups}}" wx:key="id" data-id="{{item.id}}" bind:tap="handleTapItem">
+                <view class="icon">
+                    <iconfont size="24" color="#be1010" class="spon-icon" name="{{item.icon}}"></iconfont>
+                </view>
+                <view>{{item.name}}</view>
+            </view>
+        </view>
+        <view class="sec-4">
+            <view class="pic">
+                <image src="{{item.img}}" alt="" wx:for="{{pic_arr}}" wx:key="id" data-id="{{item.id}}" bind:tap="handleTapPic" />
+            </view>
+        </view>
+        <view class="sec-5">
+            <view class="title">更多服务</view>
+            <view class="service-content">
+                <view class="ser-item" wx:for="{{services}}" wx:key="id" data-id="{{item.id}}" bind:tap="handleServiceTap">
+                    <view class="icon">
+                        <iconfont size="24" class="ser-icon" name="{{item.icon}}"></iconfont>
+                    </view>
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+    </view>
 </view>

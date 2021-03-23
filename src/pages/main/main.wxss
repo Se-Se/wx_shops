@@ -1,58 +1,179 @@
 /* pages/main/main.wxss */
-.container{
+.container {
     width: 100%;
     height: 100%;
-    padding:10rpx;
+    padding: 0;
 }
-.content{
+
+.content {
     width: 100%;
-}
-.goods-content{
-    width: 100%;
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    justify-content: left;
     padding: 20rpx;
     box-sizing: border-box;
 }
-.good{
+
+.container .header {
+    height: 100rpx;
+    font-size: 28rpx;
+}
+
+.container .header view {
+    height: 100rpx;
+    line-height: 100rpx;
+    margin-right: 40rpx;
+}
+
+.container .header .help {
+    height: 20rpx;
+    width: 20rpx;
+    margin-right: 30rpx;
+    border: 1rpx solid rgb(190, 16, 16);
+    border-radius: 100%;
+    color: rgb(190, 16, 16);
+    margin-top: 40rpx;
+    text-align: center;
+    line-height: 22rpx;
+    text-indent: 5rpx;
+    font-size: 20rpx;
+}
+
+.container .header .out {
+    color: rgb(190, 16, 16);
+}
+
+.container .content .banner .swiper-item {
     width: 100%;
-    height: 300rpx;
+    height: 100%;
+}
+
+.container .content .banner image {
+    width: 100%;
+    height: 100%;
+}
+
+/* --------------------------------------------------sec-1--------------------------------------------------------------- */
+.container .sec-1 {
+    height: 100rpx;
+    width: 100%;
+    line-height: 100rpx;
+}
+
+/* --------------------------------------------------sec-2--------------------------------------------------------------- */
+.container .sec-2 {
+    height: 90rpx;
+    width: 100%;
+}
+
+.container .sec-2 .order-btn {
+    width: 100%;
+    height: 100%;
+    border-radius: 100rpx;
+    background-color: rgb(190, 16, 16);
+    margin: 0 auto;
     position: relative;
-    margin-top:100rpx;
-    overflow: hidden;
-}
-.goods-content .good:first-child{
+    color: white;
 
 }
-.goods-content .good .good-dec{
-   position: absolute;
-   top: 0;
-   left: 50%;
+.container .sec-2 .order-btn .inner {
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%);
 }
-.goods-content .good .good-dec .discript{
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    word-break: break-all;
-    font-size: 26rpx;
-    margin-top: 10rpx;
+.container .sec-2 .order-btn .text {
+    height: 100%;
+    padding: 15rpx 0;
+    box-sizing: border-box;
+    display: inline-block;
+}
 
+.container .sec-2 .order-btn .text view {
+    height: 50%;
+    text-align: center;
 }
-.goods-content .good .good-dec .name{
+
+.container .sec-2 .order-btn .text .up {
     font-size: 30rpx;
-    font-weight: bold;
 }
-.good image{
-    width: 18vw;
-    height: 18vw;
-    /* position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(0,-50%); */
+
+.container .sec-2 .order-btn .text .down {
+    font-size: 20rpx;
+    line-height: 35rpx;
+    vertical-align: text-bottom;
+}
+
+.container .sec-2 .order-btn .icon {
+    display: inline-block;
+}
+/* --------------------------------------------------sec-3--------------------------------------------------------------- */
+.container .sec-3{
+    height: 240rpx;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    font-size: 24rpx;
     
+}
+.container .sec-3 .box-item{
+    width: 30%;
+     line-height: 300rpx;
+     position: relative;
+     text-align: center;
+}
+.container .sec-3 .box-item .icon{
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+}
+/* --------------------------------------------------sec-4--------------------------------------------------------------- */
+.container .sec-4 {
+    width: 100%;
+    height: 200rpx;
+}
+.container .sec-4 .pic{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.container .sec-4 .pic image{
+    width: 49%;
+    height: 100%;
+}
+/* --------------------------------------------------sec-5--------------------------------------------------------------- */
+.container .sec-5 {
+    height: 200rpx;
+    margin-top: 100rpx;
+    font-size: 24rpx;
+}
+.container .sec-5 .title{
+    height: 40rpx;
+    line-height: 40rpx;
+}
+.container .sec-5 .service-content{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 30rpx;
+}
+.container .sec-5 .service-content .ser-item{
+    width: 20%;
+}
+.container .sec-5 .service-content .ser-item .icon{
+    margin: 0 auto;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 100%;
+    background-color: white;
+    position: relative;
+    margin-bottom: 20rpx;
+}
+.container .sec-5 .service-content .ser-item .icon .ser-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

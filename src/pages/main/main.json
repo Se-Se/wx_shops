@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "肯德基自助点餐",
+  "navigationBarBackgroundColor": "#a30a0a",
+  "navigationBarTextStyle": "white"
 }

@@ -89,12 +89,14 @@
     color: rgb(63, 63, 63);
     font-weight: normal;
 }
+
 .order-container-sec_2 .down .phone-input {
     height: 100rpx;
     line-height: 100rpx;
     float: left;
     text-align: right;
 }
+
 .order-container-sec_2 .inner iconfont {
     margin-top: 38rpx;
     margin-left: 10rpx;
@@ -339,10 +341,12 @@
     font-size: 28rpx;
     font-weight: bold;
 }
-.order-container-sec_4 .item  {
+
+.order-container-sec_4 .item {
     height: 60rpx;
     line-height: 60rpx;
 }
+
 .order-container-sec_4 .item .left {
     text-align: left;
     display: inline-block;
@@ -353,29 +357,36 @@
     float: right;
     height: 100%;
 }
-.order-container-sec_4 .item .right switch{
- transform: scale(0.7);
- float: right;
+
+.order-container-sec_4 .item .right switch {
+    transform: scale(0.7);
+    float: right;
 }
-.order-container-sec_4 .item.tick-type{
+
+.order-container-sec_4 .item.tick-type {
     border-top: 1rpx solid rgb(223, 220, 220);
-   }
-   .order-container-sec_4 .item .bold {
+}
+
+.order-container-sec_4 .item .bold {
     font-size: 22rpx;
     font-weight: bold;
-   }
-   .order-container-sec_4 .item .light{
+}
+
+.order-container-sec_4 .item .light {
     color: rgb(177, 174, 174);
     font-weight: normal;
-   }
-   .order-container-sec_4 .item .sec_4-icon-notice{
-       margin-top: 18rpx;
-   }
-   .order-container-sec_4 .item .sec_4-icon-wx{
+}
+
+.order-container-sec_4 .item .sec_4-icon-notice {
+    margin-top: 18rpx;
+}
+
+.order-container-sec_4 .item .sec_4-icon-wx {
     margin-top: 18rpx;
     margin-right: 6rpx;
 }
-.order-pay{
+
+.order-pay {
     height: 80rpx;
     position: fixed;
     bottom: 0;
@@ -384,13 +395,15 @@
     width: 100%;
     box-shadow: 0rpx 0rpx 5rpx 5rpx rgb(223, 220, 220);
 }
-.order-pay .price{
+
+.order-pay .price {
     height: 100%;
     line-height: 80rpx;
     text-indent: 10rpx;
     color: rgb(206, 17, 17);
 }
-.order-pay .right{
+
+.order-pay .right {
     height: 70%;
     color: white;
     background-color: rgb(190, 16, 16);
@@ -400,26 +413,29 @@
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
     font-size: 24rpx;
     text-align: center;
     letter-spacing: 2rpx;
     padding-top: 6rpx;
 }
-.order-pay .right .down{
+
+.order-pay .right .down {
     font-size: 16rpx;
 }
+
 /* -----------------------------------------------notice-sec && mark---------------------------------------------------------------- */
-.mark{
+.mark {
     position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(63, 63, 63,0.5);
+    background-color: rgba(63, 63, 63, 0.5);
     z-index: 11;
 }
-.notice-sec{
+
+.notice-sec {
     width: 100%;
     height: 800rpx;
     background-color: white;
@@ -429,53 +445,62 @@
     padding: 30rpx;
     box-sizing: border-box;
 }
-.notice-sec .title{
+
+.notice-sec .title {
     /* width: 100%; */
     position: relative;
 }
-.notice-sec .title .text{
+
+.notice-sec .title .text {
     font-size: 30rpx;
     font-weight: bold;
     display: inline-block;
 }
-.notice-sec .title .close{
+
+.notice-sec .title .close {
     position: absolute;
     right: -14rpx;
     top: 0rpx;
 }
+
 .notice-sec .text-content {
-height: 260rpx;
-width: 100%;
-position: relative;
+    height: 260rpx;
+    width: 100%;
+    position: relative;
 }
-.notice-sec .text-content textarea{
+
+.notice-sec .text-content textarea {
     box-sizing: border-box;
     width: 100%;
-    height:100%;
+    height: 100%;
     padding: 30rpx;
     background-color: rgba(190, 186, 186, 0.3);
     font-size: 30rpx;
     color: #615a61;
     margin-top: 30rpx;
 }
-.notice-sec .text-content .num{
+
+.notice-sec .text-content .num {
     position: absolute;
     right: 30rpx;
     bottom: 30rpx;
     font-size: 24rpx;
     color: #615a61;
 }
-.notice-sec .tags-content{
+
+.notice-sec .tags-content {
     margin-top: 20rpx;
-    color:rgb(143, 139, 139);
+    color: rgb(143, 139, 139);
     font-size: 24rpx;
-   
+
 }
-.notice-sec .tags-content .tags-inner{
+
+.notice-sec .tags-content .tags-inner {
     height: 60rpx;
     margin-top: 20rpx;
 }
-.notice-sec .tags-content .tags-inner .tag{
+
+.notice-sec .tags-content .tags-inner .tag {
     border: 1rpx solid rgb(143, 139, 139);
     border-radius: 40rpx;
     padding: 1rpx 25rpx;
@@ -485,13 +510,15 @@ position: relative;
     text-align: center;
     margin-right: 30rpx;
 }
-.notice-sec .old-tags-content{
+
+.notice-sec .old-tags-content {
     margin-top: 20rpx;
-    color:rgb(143, 139, 139);
+    color: rgb(143, 139, 139);
     font-size: 24rpx;
-   
+
 }
-.notice-sec .old-tags-content .old-tags-inner{
+
+.notice-sec .old-tags-content .old-tags-inner {
     min-height: 60rpx;
     margin-top: 20rpx;
     display: flex;
@@ -499,7 +526,8 @@ position: relative;
     flex-wrap: wrap;
     justify-content: left;
 }
-.notice-sec .old-tags-content .old-tags-inner .tag{
+
+.notice-sec .old-tags-content .old-tags-inner .tag {
     border: 1rpx solid rgb(143, 139, 139);
     border-radius: 40rpx;
     padding: 1rpx 25rpx;
@@ -510,16 +538,19 @@ position: relative;
     width: max-content;
     margin-top: 10rpx;
 }
-.notice-sec .tag-sec{
+
+.notice-sec .tag-sec {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     max-height: 300rpx;
 }
-.notice-sec .tag-sec .item{
- margin-top: 30rpx;
+
+.notice-sec .tag-sec .item {
+    margin-top: 30rpx;
 }
-.notice-sec .save{
+
+.notice-sec .save {
     position: absolute;
     bottom: 30rpx;
     width: 80%;
@@ -530,7 +561,69 @@ position: relative;
     height: 70rpx;
     background-color: rgb(190, 16, 16);
     left: 50%;
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
     border-radius: 60rpx;
     letter-spacing: 2rpx;
+}
+
+/* -----------------------------------------------package-sec---------------------------------------------------------------- */
+.package-sec {
+    width: 100%;
+    height: 400rpx;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    z-index: 12;
+    padding: 20rpx;
+}
+
+.package-sec .title {
+    font-weight: bold;
+}
+
+.package-sec .tags-content {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.package-sec .tags-content .tag {
+    border: 1rpx solid rgb(143, 139, 139);
+    color: rgb(143, 139, 139);
+    border-radius: 40rpx;
+    padding: 1rpx 25rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin-right: 30rpx;
+    width: max-content;
+    margin-top: 40rpx;
+    font-size: 26rpx;
+}
+
+.package-sec .tags-content .on {
+    color: white;
+    background-color: rgb(190, 16, 16);
+    border: 0;
+}
+
+.package-sec .save {
+    position: absolute;
+    bottom: 30rpx;
+    width: 80%;
+    text-align: center;
+    line-height: 70rpx;
+    color: white;
+    font-size: 30rpx;
+    height: 70rpx;
+    background-color: rgb(190, 16, 16);
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 60rpx;
+    letter-spacing: 2rpx;
+}
+
+.package-sec .close {
+    position: absolute;
+    right: 50rpx;
+    top: 10rpx;
 }

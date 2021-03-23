@@ -16,15 +16,15 @@
     <view class="order-container-sec_2">
         <view class="up inner">
             <view class="l">就餐方式</view>
-            <view class="r">
-                打包带走
+            <view class="r" bind:tap="handleShowPackage">
+                {{thePackageType}}
                 <iconfont size="14" class="sec_2-icon r" name="arrow-right"></iconfont>
             </view>
         </view>
         <view class="down inner">
             <view class="l ">联系电话</view>
             <view class="r">
-                <input  class="phone-input" type="number" value="{{PhoneNum}}" />
+                <input class="phone-input" type="number" value="{{PhoneNum}}" />
                 <iconfont size="14" class="sec_2-icon-icon r" name="edit" bindtap="editPhoneNum"></iconfont>
             </view>
         </view>
@@ -59,7 +59,7 @@
                 <view class="inner-item" wx:if="{{rIndex < maxIndex_r}}" wx:for="{{recommondLsit}}" wx:for-index="rIndex" wx:for-item="rItem" wx:key="id">
                     <view class="left">
                         <view class="pic">
-                            <image src="https://7368-shops-6guf8y5z1a8e9bbb-1305216326.tcb.qcloud.la/shops-img/food1.jpg?sign=8949fd99b2185daa082f3498dc13a39b&t=1615951070" ault="" />
+                            <image src="{{rItem.img}}" ault="" />
                         </view>
                         <view class="name">{{rItem.name}}</view>
                     </view>
@@ -148,7 +148,7 @@
             <view class="down">checkout</view>
         </view>
     </view>
-    <view class="mark" wx:if="{{showNoticeSec}}"></view>
+    <view class="mark" wx:if="{{showNoticeSec||showPackageSec}}"></view>
     <view class="notice-sec" wx:if="{{showNoticeSec}}">
         <view class="title">
             <view class="text">备注</view>
@@ -164,20 +164,36 @@
                 <span class="total">{{maxLen}}</span>
             </view>
         </view>
-        <scroll-view class="tag-sec"  enable-flex="true" scroll-y="{{true}}">
+        <scroll-view class="tag-sec" enable-flex="true" scroll-y="{{true}}">
             <view class="old-tags-content item" wx:if="{{oldTags.length>0}}">
                 <view class="old-title">历史标签</view>
                 <view class="old-tags-inner">
-                    <view class="tag" wx:key="index" wx:for="{{oldTags}}" data-item="{{item}}" bindtap="handleTapOldTag">{{item}}</view>
+                    <view class="tag" wx:key="index" wx:for="{{oldTags}}" data-item="{{item}}" bindtap="handleTapOldTag">
+                        {{item}}
+                    </view>
                 </view>
             </view>
             <view class="tags-content item">
                 <view class="title">快捷标签</view>
                 <view class="tags-inner">
-                    <view class="tag" wx:for="{{fastTags}}" wx:key="fItem" data-item="{{fItem}}" wx:for-item="fItem" bindtap="handleTapFastTag">{{fItem}}</view>
+                    <view class="tag" wx:for="{{fastTags}}" wx:key="fItem" data-item="{{fItem}}" wx:for-item="fItem" bindtap="handleTapFastTag">
+                        {{fItem}}
+                    </view>
                 </view>
             </view>
         </scroll-view>
         <view class="save" bindtap="saveTag">确定</view>
+    </view>
+    <view class="package-sec" wx:if="{{showPackageSec}}">
+        <view class="title">请选择就餐方式</view>
+        <view class="close" bindtap="closePackageSec">
+            <iconfont size="24" class="icon-close" name="cross"></iconfont>
+        </view>
+        <view class="tags-content">
+            <view class="{{index===packageIndex?'tag on':'tag'}}" data-index="{{index}}" wx:for="{{packageTags}}" data-item="{{item}}" wx:key="item" bind:tap="tapPackageTag">
+                {{item}}
+            </view>
+        </view>
+        <view class="save" bind:tap="savePackageType">确定</view>
     </view>
 </scroll-view>
