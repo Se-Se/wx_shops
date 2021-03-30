@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "addrSelect": "plugin://myPlugin/addrSelect"
+  }
+}

@@ -1,0 +1,15 @@
+<view class="wrap">
+<view class="content">
+<view class="sec-1">
+  <view class="inner">
+    <view class="search-icon"><iconfont size="14" color="#bebebe" class="icon-angle" name="search"></iconfont></view>
+    <input class="city-input" maxlength="20" placeholder="输入城市..." value="{{cityValue}}" bindinput="handleCityInput" />
+    <view class="close" wx:if="{{showCityClose}}" bindtap="handleClearCity"><iconfont size="20" class="icon-close" name="cross"></iconfont></view>
+  </view>
+</view>
+<view class="sec-2">
+<city bind:myevent="handleEmitCityName"></city>
+</view>
+<view class="sec-3"></view>
+</view>
+</view>

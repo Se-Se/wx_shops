@@ -1,6 +1,7 @@
 <!-- pages/main/main.wxml -->
 <view class="container">
     <view class="content">
+    <map class="map" id="map" wx:if="{{true}}" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map> 
         <view class="header">
             <view class="help r">？</view>
             <view class="out r">退出</view>
@@ -25,6 +26,10 @@
         <view class="sec-1">
             下午好，
             <open-data type="userNickName"></open-data>
+            <view class="near">
+            <iconfont size="14" color="#be1010" class="position-icon" name="dingwei"></iconfont>
+            <view class="info">附近门店： {{nearShop.name}} 约{{nearShop.distance}}米</view>
+            </view>
         </view>
         <view class="sec-2">
             <view class="order-btn">

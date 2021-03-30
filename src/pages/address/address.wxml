@@ -1,0 +1,67 @@
+<!-- src/pages/address/address.wxml -->
+<view class="wrap">
+    <view class="content">
+        <view class="sec-1">
+            <view class="inner">
+                <view class="city" bind:tap="handleCity">
+                    {{cityName}}
+                    <iconfont size="14" class="icon-angle" name="angle_down"></iconfont>
+                </view>
+                <!-- <view class="icon-angle"></view> -->
+                <view class="input">请输入关键字搜索</view>
+                <view class="icon-search">
+                    <iconfont size="14" color="#bebebe" class="icon-angle" name="search"></iconfont>
+                </view>
+            </view>
+        </view>
+        <view class="sec-2">
+            <view class="up">
+                <view class="tags">
+                    <view class="{{isSweet?'left':'left on'}}" data-type='normall' bind:tap="handleShopType">常规餐厅</view>
+                    <view class="{{isSweet?'right on':'right'}}" data-type='sweet' bind:tap="handleShopType">甜品店</view>
+                </view>
+            </view>
+            <view class="content">
+                <view class="title">附近</view>
+                <view class="inner">
+                    <view class="item" wx:for="{{nearShops}}" wx:key="uid" wx:for-item="shop">
+                        <mp-slideview ext-class="slidev-inner" buttons="{{shop.slideButtons}}"  bindbuttontap="slideButtonTap">
+                            <view class="name">
+                                {{shop.name}}
+                                <view class="distance">{{shop.detail_info.distance}}米</view>
+                            </view>
+                            <view class="address">{{shop.address}}</view>
+                        </mp-slideview>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="sec-2">
+            <view class="up">
+                <view class="tags">
+                    <view class="left on">常去&收藏</view>
+                </view>
+            </view>
+            <view class="content">
+                <view class="inner" wx:if="{{collections.length>0}}">
+                    <view class="item" wx:for="{{collections}}" wx:key="uid" wx:for-item="shop">
+                        <mp-slideview ext-class="slidev-inner" buttons="{{shop.slideButtons}}" bindbuttontap="slideButtonTap">
+                            <view class="name">
+                                {{shop.name}}
+                                <view class="distance">{{shop.detail_info.distance}}米</view>
+                            </view>
+                            <view class="address">{{shop.address}}</view>
+                        </mp-slideview>
+                    </view>
+                </view>
+                <view class="empty" wx:else>
+                <view class="empty-icon"><iconfont size="50" class="icon-star" name="pingfenxingxing"></iconfont></view>
+                <view class="text"> 左滑上方的餐厅列表可以收藏餐厅哦</view>
+                </view>
+            </view>
+        </view>
+        <view class="sec-3"  >
+        <view class="toast" animation="{{tAnimation}}">{{toastMsg}}</view>
+        </view>
+    </view>
+</view>

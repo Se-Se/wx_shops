@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "city":"/src/component/city/city"
+  },
+  "navigationBarTitleText": "城市列表",
+  "navigationBarBackgroundColor": "#a30a0a",
+  "navigationBarTextStyle": "white"
+}

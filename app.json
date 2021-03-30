@@ -1,10 +1,13 @@
 {
   "pages": [
-    "src/pages/goods/good",
     "src/pages/main/main",
+    "src/pages/goods/good",
     "src/pages/index/index",
     "src/pages/logs/logs",
-    "src/pages/order/order"
+    "src/pages/order/order",
+    "src/pages/address/address",
+    "src/pages/city/city",
+    "src/pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,10 +15,22 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-  "entryPagePath":"src/pages/main/main",
+  "entryPagePath": "src/pages/address/address",
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "iconfont": "/iconfont/iconfont"
+  },
+  "functionalPages": {
+    "independent": true
+  },
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.0",
+      "provider": "wxa2bc44d7632840af"
+    }
+  },
+  "useExtendedLib": {
+    "weui": true
   }
 }

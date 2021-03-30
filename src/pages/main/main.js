@@ -1,4 +1,5 @@
 // pages/main/main.js
+import {getSearchMapInfo} from "../../utils/location.js";
 Page({
 
   /**
@@ -19,7 +20,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -66,9 +67,11 @@ Page({
       autoplay: true,
       interval: 2000,
       duration: 500,
-      circular: true
+      circular: true,
     },
     swiperArr: [],
+    longitude:null,
+    latitude:null,
     sec_2_groups: [
       {
         name: '会员码',
@@ -122,11 +125,28 @@ Page({
         icon:'scooter__easy',
         name:'宅急送'
       },
-    ]
+    ],
+    nearShop:{
+      name:'',
+      distance:'',
+    }
   },
   init() {
     this.setData({
       swiperArr: test_swiper
+    });
+    this.getNearShopInfo()
+  },
+  getNearShopInfo(){
+    getSearchMapInfo('肯德基',50000,'json',2,'|sort_name:distance|sort_rule:1',20).then(res=>{
+      console.log(res);
+      let info = res.data.results[0]
+      this.setData({
+        nearShop:{
+          name:info.name,
+          distance:info.detail_info.distance,
+        }
+      })
     })
   },
   handleServiceTap(ev) {

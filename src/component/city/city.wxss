@@ -1,0 +1,86 @@
+/* src/component/city/city.wxss */
+.city-component {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(243, 243, 243);
+}
+
+.city-component .header {
+  background-color: white;
+  height: 150rpx;
+  font-size: 20rpx;
+  color: rgb(179, 179, 179);
+  letter-spacing: 2rpx;
+  padding: 20rpx;
+  border-bottom: 10rpx solid rgb(243, 243, 243);
+  box-sizing: border-box;
+  /* box-shadow: 10rpx 10rpx 10rpx 10rpx rgb(53, 52, 52); */
+}
+
+.city-component .header .title {
+  height: 55rpx;
+  line-height: 30rpx;
+}
+
+.city-component .header .current-city {
+  height: 55rpx;
+  line-height: 70rpx;
+}
+
+.city-component .header .current-city .name {
+  width: max-content;
+  float: left;
+  font-size: 30rpx;
+  color: #000;
+}
+
+.city-component .header .current-city .location {
+  float: right;
+  color: #808080;
+}
+.city-component .header .current-city .location .icon-location{
+  float: left;
+  margin-top: 22rpx;
+  margin-right: 16rpx;
+}
+.city-component .city-content{
+  height: 100%;
+  position: relative;
+  /* overflow: hidden; */
+}
+.city-component .city-content .content-inner{
+  height: 100%;
+}
+.city-component .city-content .content-inner .city-item{
+  margin-top: 20rpx;
+  background-color: white;
+  padding: 40rpx;
+}
+.city-component .city-content .content-inner .city-item:first-child{
+  margin-top: 10rpx;
+}
+.city-component .city-content .content-inner .city-item .tag{
+  /* margin: 20rpx; */
+  font-size: 20rpx;
+  color: rgb(179, 179, 179);
+}
+.city-component .city-content .content-inner .city-item .name{
+  margin-top: 40rpx;
+  font-size: 30rpx;
+}
+.city-component .city-content .city-tags{
+  position: absolute;
+  right: 20rpx;
+  top: 0;
+  font-size: 20rpx;
+  color: rgb(179, 179, 179);
+  height: 100%;
+}
+.city-component .city-content .city-tags .tags-inner{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  height: 100%;
+  padding:40rpx 0 20rpx;
+  box-sizing: border-box;
+}

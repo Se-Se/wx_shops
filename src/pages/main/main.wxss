@@ -52,11 +52,26 @@
 
 /* --------------------------------------------------sec-1--------------------------------------------------------------- */
 .container .sec-1 {
-    height: 100rpx;
+    height: 150rpx;
     width: 100%;
     line-height: 100rpx;
+    position: relative;
 }
-
+.container .sec-1 .near{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    font-size: 24rpx;
+    color: rgb(117, 117, 117);
+}
+.container .sec-1 .near .position-icon{
+    display: inline-block;
+    transform: translate(0,6rpx);
+    margin-right: 15rpx;
+}
+.container .sec-1 .near .info{
+    display: inline-block;
+}
 /* --------------------------------------------------sec-2--------------------------------------------------------------- */
 .container .sec-2 {
     height: 90rpx;

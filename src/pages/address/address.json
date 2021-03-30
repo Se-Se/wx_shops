@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "addrSelect": "plugin://myPlugin/addrSelect",
+    "mp-dialog": "weui-miniprogram/dialog/dialog",
+    "mp-slideview": "weui-miniprogram/slideview/slideview"
+  },
+  "navigationBarTitleText": "选择餐厅",
+  "navigationBarBackgroundColor": "#a30a0a",
+  "navigationBarTextStyle": "white"
+}

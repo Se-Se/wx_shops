@@ -1,0 +1,31 @@
+<!--src/component/city/city.wxml-->
+<view class="city-component">
+<view class="header">
+  <view class="title">当前定位城市</view>
+  <view class="current-city">
+    <view class="name" bind:tap="tapCurrentCiyt">{{currentCity}}</view>
+    <view class="location" bind:tap="getSearchMapInfo">
+      <iconfont size="14" color="#808080" class="icon-location" name="Location"></iconfont>
+      重新定位
+    </view>
+  </view>
+</view>
+<view class="city-content">
+<scroll-view enable-flex="true" class="content-inner" scroll-y="{{true}}">
+<view class="city-item" wx:for="{{cityList}}" wx:key="title">
+<view class="tag">{{item.title}}</view>
+<view class="name" wx:for="{{item.lists}}" wx:key="cItem" wx:for-item="cItem" data-name="{{cItem}}" bind:tap="handleCurrentCity">{{cItem}}</view>
+</view>
+</scroll-view>
+<view class="city-tags">
+  <view class="tags-inner">
+    <view class="tag" wx:for="{{cityTags}}" wx:key="tItem" wx:for-item="tItem">{{tItem}}</view>
+  </view>
+</view>
+</view>
+<!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker> -->
+</view>

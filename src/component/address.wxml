@@ -1,0 +1,19 @@
+<!--src/component/address.wxml-->
+<text>src/pages/address/address.wxml</text>
+<functional-page-navigator name="loginAndGetUserInfo" args="" version="develop" bind:success="loginSuccess">
+  <button>登录到插件</button>
+</functional-page-navigator>
+<addrSelect
+    id="addrSelect"
+    level="3"
+    placeholder="请选择省市区地址"
+    dataType="json"
+    class="addr-class"
+    bind:eventCallback="getAddr" />
+    <view > <button bindtap="getLocation">address</button></view>
+    <button bindtap="openLocation">open address</button>
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+      当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+    </view>
+  </picker>
