@@ -1,63 +1,80 @@
 /* src/pages/address/address.wxss */
-page{
+page {
   height: 100%;
   width: 100%;
 }
-.wrap{
+
+.wrap {
   width: 100%;
   height: 100%;
   background-color: rgb(243, 243, 243);
   /* padding:0 20rpx; */
   /* box-sizing: border-box; */
 }
-.wrap .sec-1{
+.wrap .mark{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.wrap .sec-1 {
   height: 80rpx;
   background-color: white;
   padding-top: 10rpx;
   box-sizing: border-box;
 }
-.wrap .sec-1 .inner{
+
+.wrap .sec-1 .inner {
   width: 90%;
   height: 60rpx;
   border-radius: 50rpx;
   background-color: rgb(243, 243, 243);
   margin: 0 auto;
 }
-.wrap .sec-1 .inner .city{
-  display:inline-block;
+
+.wrap .sec-1 .inner .city {
+  display: inline-block;
   line-height: 60rpx;
   margin-left: 50rpx;
   font-size: 30rpx;
   font-weight: bold;
 }
-.wrap .sec-1 .inner .city .icon-angle{
+
+.wrap .sec-1 .inner .city .icon-angle {
   display: inline-block;
   margin-left: 20rpx;
-  transform:translate(0,5rpx)
+  transform: translate(0, 5rpx)
 }
-.wrap .sec-1 .inner .input{
-  display:inline-block;
+
+.wrap .sec-1 .inner .input {
+  display: inline-block;
   line-height: 60rpx;
   margin-left: 50rpx;
   font-size: 24rpx;
   color: #bebebe;
 }
-.wrap .sec-1 .inner .icon-search{
+
+.wrap .sec-1 .inner .icon-search {
   /* display: inline-block; */
   float: right;
   margin-right: 38rpx;
   margin-top: 16rpx;
 }
+
 /* ----------------------------------------------------sec-2--------------------------------------------------------- */
-.wrap .sec-2{
+.wrap .sec-2 {
   padding: 0 20rpx;
 }
-.wrap .sec-2 .up{
-width: 100%;
-height: 100rpx;
-/* background-color: chocolate; */
+
+.wrap .sec-2 .up {
+  width: 100%;
+  height: 100rpx;
+  /* background-color: chocolate; */
 }
-.wrap .sec-2 .up view{
+
+.wrap .sec-2 .up view {
   display: inline-block;
   height: 100%;
   line-height: 100rpx;
@@ -65,101 +82,149 @@ height: 100rpx;
   color: #bebebe;
   font-weight: bold;
 }
-.wrap .sec-2 .up .right{
+
+.wrap .sec-2 .up .right {
   margin-left: 30rpx;
 }
-.wrap .sec-2 .up .on{
+
+.wrap .sec-2 .up .on {
   font-size: 40rpx;
   color: #050505;
 }
-.wrap .sec-2 .content{
+
+.wrap .sec-2 .content {
   width: 100%;
   padding: 40rpx 20rpx;
   box-sizing: border-box;
   background-color: white;
   border-radius: 20rpx;
 }
-.wrap .sec-2 .content .title{
-font-size: 30rpx;
-color: rgb(165, 164, 164);
+
+.wrap .sec-2 .content .title {
+  font-size: 30rpx;
+  color: rgb(165, 164, 164);
 }
-.wrap .sec-2 .content .inner{
+
+.wrap .sec-2 .content .inner {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   font-size: 30rpx;
 }
-.wrap .sec-2 .content .inner .item{
-height: 90rpx;
-border-bottom: 1rpx solid rgb(199, 197, 197);
-padding: 20rpx 0;
-position: relative;
-width: 100%;
+
+.wrap .sec-2 .content .inner .item {
+  height: 90rpx;
+  border-bottom: 1rpx solid rgb(199, 197, 197);
+  padding: 20rpx 0;
+  position: relative;
+  width: 100%;
 }
-.wrap .sec-2 .content .inner .item:last-child{
+
+.wrap .sec-2 .content .inner .item:last-child {
   border: 0;
 }
-.wrap .sec-2 .content .inner .item .distance{
+
+.wrap .sec-2 .content .inner .item .distance {
   float: right;
-  color:rgb(165, 164, 164) ;
+  color: rgb(165, 164, 164);
   font-size: 24rpx;
 }
-.wrap .sec-2 .content .inner .item .address{
-  color:rgb(165, 164, 164) ;
+
+.wrap .sec-2 .content .inner .item .address {
+  color: rgb(165, 164, 164);
   /* width: 50%; */
   height: 50rpx;
   display: inline-block;
   overflow-x: auto;
 }
-.wrap .sec-2 .content .inner .item .weui-slideview__btn{
+
+.wrap .sec-2 .content .inner .item .weui-slideview__btn {
   height: 90rpx;
   line-height: 90rpx;
   background-color: #a30a0a;
   width: 120rpx;
 }
+
 .wrap .sec-2 .content .inner .item .weui-slideview__right {
-  margin-left:20rpx;
+  margin-left: 20rpx;
   text-indent: -20rpx;
   /* padding-left: 20rpx; */
 }
-.wrap .sec-2 .content .inner .item .text{
+
+.wrap .sec-2 .content .inner .item .text {
   width: 100rpx;
 }
+
+/* ----------------------------------------------------sec-2 > empty-content------------------------------------ */
+.wrap .sec-2 .empty-content {
+  width: 100%;
+  height: 400rpx;
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+  background-color: rgb(253, 253, 253);
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  color: #a5a4a4;
+  position: relative;
+}
+
+.wrap .sec-2 .empty-content .position-icon {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.wrap .sec-2 .empty-content .text {
+  letter-spacing: 5rpx;
+  position: absolute;
+  bottom: 40rpx;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+}
+
 /* ----------------------------------------------------sec-2--------------------------------------------------------- */
 .content .empty {
-height: 260rpx;
-width: 100%;
-box-sizing: border-box;
-text-align: center;
-position: relative;
+  height: 260rpx;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
 }
+
 .content .empty .empty-icon {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
-.content .empty .text{
+
+.content .empty .text {
   font-size: 24rpx;
-  color:rgb(165, 164, 164) ;
+  color: #a5a4a4;
   position: absolute;
   width: 100%;
- bottom: 0;
+  bottom: 0;
+  letter-spacing: 5rpx;
 }
+
 /* ----------------------------------------------------sec-3--------------------------------------------------------- */
-.content .sec-3{
+.content .sec-3 {
   width: 100%;
   height: 100%;
 }
-.content .sec-3 .toast{
+
+.content .sec-3 .toast {
   min-height: 60rpx;
   vertical-align: middle;
   line-height: 60rpx;
-  background-color: rgba(56, 56, 56,0.9);
+  background-color: rgba(56, 56, 56, 0.9);
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 12;
   min-width: 100rpx;
   border-radius: 10rpx;
@@ -167,4 +232,88 @@ position: relative;
   opacity: 0;
   color: white;
   padding: 10rpx;
+}
+/* ----------------------------------------------------sec-4--------------------------------------------------------- */
+.content .sec-4 {
+  height: 800rpx;
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  background-color: lightcoral;
+  position: fixed;
+  bottom: 0;
+}
+.content .sec-4 .close{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.content .sec-4 .shop-info .name{
+  font-size: 30rpx;
+  letter-spacing: 5rpx;
+}
+.content .sec-4 .shop-info .name .shop-icon{
+display: inline-block;
+transform: translate(0,10rpx);
+}
+.content .sec-4 .shop-info .address{
+  font-size: 20rpx;
+  color:#a5a4a4 ;
+  letter-spacing: 2rpx;
+}
+.content .sec-4 .shop-info .notice .notice-icon{
+  display: inline-block;
+  transform: translate(0,6rpx);
+  margin-right: 5rpx;
+  }
+.content .sec-4 .shop-info .notice{
+font-size: 16rpx;
+margin-top: 5rpx;
+}
+.content .sec-4 .order-type{
+  font-size: 22rpx;
+  color: #a5a4a4;
+  letter-spacing: 2rpx;
+}
+.content .sec-4 .order-type .weui-cell[aria-checked="true"]{
+  color: #a30a0a;
+}
+.content .sec-4 .order-type .weui-cell{
+  padding: 40rpx 0;
+}
+.content .sec-4 .order-type .weui-cell__hd{
+  margin-right: 20rpx;
+}
+.content .sec-4 .order-type .right-icon{
+  float: right;
+  transform: translate(0,-40rpx);
+}
+/* ----------------------------------------------------sec-5--------------------------------------------------------- */
+.content .sec-5 {
+  height: 800rpx;
+  width: 100%;
+  box-sizing: border-box;
+  background-color:white;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  transform: translate(100%);
+}
+.content .sec-5 .header{
+  height: 80rpx;
+  background-color: rgb(243, 237, 230);
+  display: flex;
+  justify-content: space-between;
+  line-height: 80rpx;
+  text-align: center;
+}
+.content .sec-5 .header .left-icon{
+  width: 100rpx;
+  padding: 20rpx;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+}
+.content .sec-5 .header .save{
+  width: 100rpx;
+  padding-right: 20rpx;
 }

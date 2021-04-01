@@ -137,6 +137,12 @@ Page({
     });
     this.getNearShopInfo()
   },
+    // ////////////////////////////////////////跳到address-page///////////////////////////////////////////
+  handleOrderMale(){
+    wx.navigateTo({
+      url: '../address/address',
+    })
+  },
   getNearShopInfo(){
     getSearchMapInfo('肯德基',50000,'json',2,'|sort_name:distance|sort_rule:1',20).then(res=>{
       console.log(res);

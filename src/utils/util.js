@@ -60,3 +60,24 @@ export function removeDbCloudInfo(name,info){
  return  db.collection(name).where(info).remove()
 // })
 }
+// //////////////////////////////////wx-animation/////////////////////////////////////////////
+export function setAnimation(start_property,end_property,the_this,the_data,timingFunction,duration,timer){
+  let ani = wx.createAnimation({
+    duration: duration,
+    timingFunction: timingFunction,
+
+  });
+  ani[start_property](0).step();
+  
+  the_this.setData({
+    [the_data]: ani.export()
+  });
+  setTimeout(() => {
+    ani[end_property](50).step();
+    the_this.setData({
+      [the_data]: ani.export()
+    })
+  }, timer);
+
+}
+// 24H

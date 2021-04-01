@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // pingfenxingxing | dingwei | Location | search | angle_down | scooter__easy | kafei | shop1 | v | huiyuan | huiyuanqia | dingdanyichenggong | kabao | shaoziyuchazi | cross | weixinzhifu | arrow-down-line | arrow-right | edit | shop | shiwuqimin3 | shiwuqimin4 | 30 | renwu-15 | jiankangma | shiwuqimin | shiwuqimin1 | shiwuqimin2 | shiwumiantiao | shiwureliang
+    // left-arrow | 029tanhao | location | pingfenxingxing | dingwei | Location | search | angle_down | scooter__easy | kafei | shop1 | v | huiyuan | huiyuanqia | dingdanyichenggong | kabao | shaoziyuchazi | cross | weixinzhifu | arrow-down-line | arrow-right | edit | shop | shiwuqimin3 | shiwuqimin4 | 30 | renwu-15 | jiankangma | shiwuqimin | shiwuqimin1 | shiwuqimin2 | shiwumiantiao | shiwureliang
     name: {
       type: String,
     },

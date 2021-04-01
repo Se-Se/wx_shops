@@ -32,7 +32,7 @@
             </view>
         </view>
         <view class="sec-2">
-            <view class="order-btn">
+            <view class="order-btn" bind:tap="handleOrderMale">
                 <view class="inner">
                     <view class="icon">
                         <iconfont size="24" color="white" class="spon-icon" name="shaoziyuchazi"></iconfont>

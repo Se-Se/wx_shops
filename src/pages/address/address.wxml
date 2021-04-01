@@ -1,5 +1,6 @@
 <!-- src/pages/address/address.wxml -->
 <view class="wrap">
+    <view class="mark"></view>
     <view class="content">
         <view class="sec-1">
             <view class="inner">
@@ -17,15 +18,19 @@
         <view class="sec-2">
             <view class="up">
                 <view class="tags">
-                    <view class="{{isSweet?'left':'left on'}}" data-type='normall' bind:tap="handleShopType">常规餐厅</view>
-                    <view class="{{isSweet?'right on':'right'}}" data-type='sweet' bind:tap="handleShopType">甜品店</view>
+                    <view class="{{isSweet?'left':'left on'}}" data-type='normall' bind:tap="handleShopType">
+                        常规餐厅
+                    </view>
+                    <view class="{{isSweet?'right on':'right'}}" data-type='sweet' bind:tap="handleShopType">
+                        甜品店
+                    </view>
                 </view>
             </view>
-            <view class="content">
+            <view class="content" wx:if="{{isLoaction}}">
                 <view class="title">附近</view>
                 <view class="inner">
-                    <view class="item" wx:for="{{nearShops}}" wx:key="uid" wx:for-item="shop">
-                        <mp-slideview ext-class="slidev-inner" buttons="{{shop.slideButtons}}"  bindbuttontap="slideButtonTap">
+                    <view class="item" wx:for="{{nearShops}}" wx:key="uid" wx:for-item="shop" data-item="{{shop}}" bind:tap="choseTheShop">
+                        <mp-slideview ext-class="slidev-inner" buttons="{{shop.slideButtons}}" bindbuttontap="slideButtonTap">
                             <view class="name">
                                 {{shop.name}}
                                 <view class="distance">{{shop.detail_info.distance}}米</view>
@@ -33,6 +38,15 @@
                             <view class="address">{{shop.address}}</view>
                         </mp-slideview>
                     </view>
+                </view>
+            </view>
+            <view class="empty-content" wx:if="{{!isLoaction}}">
+                <view class="position-icon">
+                    <iconfont size="50" color="#e5e2e2" class="icon-star" name="location"></iconfont>
+                </view>
+                <view class="text">
+                    <view>您所选的城市与当前所在的城市不一致</view>
+                    <view>请尝试手动搜索餐厅</view>
                 </view>
             </view>
         </view>
@@ -44,7 +58,7 @@
             </view>
             <view class="content">
                 <view class="inner" wx:if="{{collections.length>0}}">
-                    <view class="item" wx:for="{{collections}}" wx:key="uid" wx:for-item="shop">
+                    <view class="item" wx:for="{{collections}}" wx:key="uid" wx:for-item="shop" data-item="{{shop}}" bind:tap="choseTheShop">
                         <mp-slideview ext-class="slidev-inner" buttons="{{shop.slideButtons}}" bindbuttontap="slideButtonTap">
                             <view class="name">
                                 {{shop.name}}
@@ -55,13 +69,107 @@
                     </view>
                 </view>
                 <view class="empty" wx:else>
-                <view class="empty-icon"><iconfont size="50" class="icon-star" name="pingfenxingxing"></iconfont></view>
-                <view class="text"> 左滑上方的餐厅列表可以收藏餐厅哦</view>
+                    <view class="empty-icon">
+                        <iconfont size="50" class="icon-star" name="pingfenxingxing"></iconfont>
+                    </view>
+                    <view class="text">左滑上方的餐厅列表可以收藏餐厅哦</view>
                 </view>
             </view>
         </view>
-        <view class="sec-3"  >
-        <view class="toast" animation="{{tAnimation}}">{{toastMsg}}</view>
+        <view class="sec-3">
+            <view class="toast" animation="{{tAnimation}}">{{toastMsg}}</view>
+        </view>
+        <view class="sec-4" animation="{{sec_4_animation}}">
+            <view class="shop-info">
+                <view class="name">
+                    <view class="shop-icon">
+                        <iconfont size="20" class="icon-close" name="shop"></iconfont>
+                    </view>
+                    硅谷店
+                </view>
+                <view class="address">高新技术产业园区</view>
+                <view class="notice">
+                    <view class="notice-icon">
+                        <iconfont size="10" class="icon-close" name="029tanhao"></iconfont>
+                    </view>
+                    餐厅密集
+                </view>
+            </view>
+            <view class="close">
+                <iconfont size="20" class="icon-close" name="cross"></iconfont>
+            </view>
+            <view class="order-type">
+                <radio-group bindchange="radioChange">
+                    <label class="weui-cell weui-check__label" wx:for="{{dinnerTypes}}" wx:key="value">
+                        <view class="weui-cell__hd">
+                            <radio color="#a30a0a" value="{{item.value}}" checked="true" />
+                        </view>
+                        <view class="weui-cell__bd" data-type="{{item.value}}" bind:tap="handleOrderTap">
+                            <view class="up" wx:if="{{!hasOrderTime}}">{{item.text}}</view>
+                            <view class="up" wx:else>{{item.text_1 + orderTimeText + item.text_2}}</view>
+                            <view class="down">{{item.value}}</view>
+                            <view class="right-icon" wx:if="{{item.value === 'Later'}}">
+                                <iconfont size="14" color="#a30a0a" class="icon-close" name="arrow-right"></iconfont>
+                            </view>
+                        </view>
+                    </label>
+                </radio-group>
+            </view>
+            <view class="public-notice">
+                <view class="public-icon"></view>
+            </view>
+            <view class="dinner-type">
+                <view class="title">请选择就餐方式</view>
+                <view class="type-groups">
+                    <view class="in-shop">
+                        <view class="food-icon"></view>
+                        <view class="text">
+                            <view class="up">店内就餐</view>
+                            <view class="down">Dine In</view>
+                        </view>
+                    </view>
+                    <view class="package">
+                        <view class="pack-icon"></view>
+                        <view class="text">
+                            <view class="up">打包带走</view>
+                            <view class="down">Take Away</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="sec-5" animation="{{sec_5_animation}}">
+            <view class="header">
+                <view class="left-icon" bind:tap="goBackSec_4">
+                    <iconfont size="14" color="#a30a0a" class="icon-close" name="left-arrow"></iconfont>
+                </view>
+                <view class="text">请选择预约时间</view>
+                <view class="save" bind:tap="saveTime">确定</view>
+            </view>
+            <view class="content">
+                <view class="page-body">
+                    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{pickerVal}}" bindchange="bindTimeChange">
+                        <picker-view-column>
+                            <view style="line-height: 50px; text-align: center;">
+                                今天({{today}}号)
+                            </view>
+                            <view style="line-height: 50px; text-align: center;">
+                                明天({{tomorrow}}号)
+                            </view>
+                        </picker-view-column>
+                        <picker-view-column>
+                            <view wx:for="{{hours}}" wx:key="value" style="line-height: 50px; text-align: center;">
+                                {{item.text}}
+                            </view>
+                        </picker-view-column>
+                        <picker-view-column>
+                            <view wx:for="{{miniutes}}" wx:key="value" style="line-height: 50px; text-align: center;">
+                                {{item.text}}
+                            </view>
+                        </picker-view-column>
+                    </picker-view>
+                </view>
+            </view>
         </view>
     </view>
 </view>
